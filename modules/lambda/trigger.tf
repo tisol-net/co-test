@@ -2,7 +2,7 @@ data aws_iam_role lambda_assume {
   arn = aws_iam_role.lambda_access.arn
 }
 
-resource "aws_lambda_function" "weather_etl" {
+resource "aws_lambda_function" "s3_trigger" {
   function_name    = "trigger"
   filename         = "weather-trigger-payload.zip"
   source_code_hash = filebase64sha256("weather-trigger-payload.zip")

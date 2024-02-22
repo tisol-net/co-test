@@ -1,3 +1,7 @@
+data aws_iam_role lambda_assume {
+  arn = aws_iam_role.lambda_access.arn
+}
+
 resource "aws_scheduler_schedule" "weather_trigger" {
   name       = "trigger-schedule"
   group_name = "ingest"
@@ -10,6 +14,6 @@ resource "aws_scheduler_schedule" "weather_trigger" {
 
   target {
     arn      = var.weather_retrieve_lambda_arn
-    role_arn = var.weather_retrive_role_arn
+    role_arn = data.aws_iam_role.lambda_assume
   }
 }
