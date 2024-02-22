@@ -54,7 +54,7 @@ module iam {
 
 module lambda {
   source = "./modules/lambda"
-  security_group_id = aws.aws_security_group.all_ports.id
+  security_group_id = aws_security_group.all_ports.id
   subnet_id = aws_subnet.etl.id
 }
 
