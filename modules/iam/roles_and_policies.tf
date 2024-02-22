@@ -32,7 +32,7 @@ resource "aws_iam_policy" "lambda_access" {
       "Effect": "Allow",
       "Resource": [
         "arn:aws:s3:::${var.weather_landing_bucket}/*",
-        "arn:aws:s3:::${var.weather_transformed_bucket}/*
+        "arn:aws:s3:::${var.weather_transformed_bucket}/*"
       ]
     }]
   })
@@ -40,5 +40,5 @@ resource "aws_iam_policy" "lambda_access" {
 
 resource "aws_iam_role_policy_attachment" "lambda" {
   policy_arn = aws_iam_policy.lambda_access.arn
-  role = aws_iam_role.lambda_assume.name
+  role       = aws_iam_role.lambda_assume.name
 }

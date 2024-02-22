@@ -58,7 +58,7 @@ module lambda {
   subnet_id = aws_subnet.etl.id
 }
 
-modules glue {
+module glue {
   source = "./modules/glue"
 }
 
