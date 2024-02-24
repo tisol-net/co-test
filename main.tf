@@ -1,4 +1,10 @@
 terraform {
+  required_providers {
+    aws = {
+      source = "hashicorp/aws"
+      version = "5.37"
+    }
+  }
   required_version = ">= 1.5.7"
   backend "s3" {
     bucket               = "co-terraform"
@@ -12,7 +18,6 @@ terraform {
 
 provider aws {
   region                = var.region
-  version               = "~> 5.37"
   allowed_account_ids   = [var.accounts[terraform.workspace]]
   assume_role {
     role_arn = "arn:aws:iam::${var.accounts[terraform.workspace]}:role/Administrator"
